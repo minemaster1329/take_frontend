@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Layout from "./components/layoutcomponents/Layout";
+import Home from "./components/Home";
+import ClientsOverview from "./components/clientcomponents/ClientsOverview";
+import NotFound from "./components/NotFound";
+import DefinedRoutesOverview from "./components/definedroutecomponents/DefinedRoutesOverview";
+import RoutesOverview from "./components/routecomponents/RoutesOverview";
+import PackagesOverview from "./components/packagecomponents/PackagesOverview";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React 2
-        </a>
-      </header>
-    </div>
+      <div className='App'>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Layout/>}>
+              <Route index element={<Home/>}/>
+              <Route path='clientsoverview' element={<ClientsOverview/>}/>
+              <Route path='definedroutesoverview' element={<DefinedRoutesOverview/>}/>
+              <Route path='routesoverview' element={<RoutesOverview/>}/>
+              <Route path='packagesoverview' element={<PackagesOverview/>}/>
+              <Route path='*' element={<NotFound/>}/>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
   );
 }
 
