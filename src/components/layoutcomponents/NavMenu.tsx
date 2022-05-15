@@ -1,5 +1,16 @@
-import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from "reactstrap";
+import {
+    Collapse, DropdownItem, DropdownMenu,
+    DropdownToggle,
+    Nav,
+    Navbar,
+    NavbarBrand,
+    NavbarToggler,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown
+} from "reactstrap";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 export default function NavMenu(){
     const [navbarOpened, toggleNavbarOpened] = useState(false)
@@ -11,13 +22,21 @@ export default function NavMenu(){
                     Delivery company system
                 </NavbarBrand>
                 <NavbarToggler onClick={() => toggleNavbarOpened(!navbarOpened)}/>
-                <Collapse navbar isOpen={navbarOpened} className="flex-sm-row-reverse">
+                <Collapse navbar isOpen={navbarOpened} className="flex-row-reverse">
                     <Nav navbar>
-                        <NavItem>
-                            <NavLink href='/clientsoverview'>
+                        <UncontrolledDropdown nav inNavbar>
+                            <DropdownToggle nav caret className="text-dark">
                                 Clients
-                            </NavLink>
-                        </NavItem>
+                            </DropdownToggle>
+                            <DropdownMenu end>
+                                <DropdownItem tag={Link} to='/clientsoverview'>
+                                    Overview
+                                </DropdownItem>
+                                <DropdownItem tag={Link} to='/addnewclient'>
+                                    Add new
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
                         <NavItem>
                             <NavLink href='/definedroutesoverview'>
                                 Defined routes

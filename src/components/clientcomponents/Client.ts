@@ -5,3 +5,7 @@ export type Client = {
     address: string,
     telephoneNumber: string,
 }
+
+export interface ClientIdOnly {
+    clientId: number
+}

@@ -1,53 +1,76 @@
+import {useLocation} from "react-router-dom";
+import {ClientIdOnly, Client} from "./Client";
 import {Button, Form, FormGroup, Input, Label} from "reactstrap";
-import {useState} from "react";
-import {Link} from "react-router-dom";
-import {Client} from "./Client";
+import {useEffect, useState} from "react";
 
-export default function AddNewClient() {
+export default function EditClient() {
+    const {state} = useLocation();
+    const {clientId} = state as ClientIdOnly
+
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [address, setAddress] = useState("")
     const [telephoneNumber, setTelephoneNumber] = useState("")
 
+    const [clientCopy, setClientCopy] = useState<Client>();
+
+    useEffect(() => {
+        const fetchClient = async () => {
+            await fetch(`http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/${clientId}`).then(response => {
+                if (response.ok){
+                    return response.json();
+                }
+            })
+                .then(responseJson => {
+                    let client = responseJson as Client
+                    setClientCopy(client);
+                    setFirstName(client.firstName)
+                    setLastName(client.lastName)
+                    setAddress(client.address)
+                    setTelephoneNumber(client.telephoneNumber)
+                })
+        }
+
+        fetchClient();
+    }, [clientId])
+
     const handleSubmit = async () => {
-        let client: Client = {
-            id: 0,
+        const client: Client = {
+            id: clientId,
             firstName: firstName,
             lastName: lastName,
             address: address,
-            telephoneNumber
+            telephoneNumber: telephoneNumber
         }
-
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/addnew', {
-            method: 'POST',
+        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/update', {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(client)
         })
             .then(response => {
-            if (response.ok){
-                alert("Client added successfully");
-            }
-            else {
-                alert("Error when adding client")
-            }
-        });
-    }
+                if (response.ok){
+                    alert("Client edited successfully");
+                }
+
+                else alert("Something went wrong when saving changes");
+            })
+;    }
 
     const handleReset = () => {
-        setFirstName("");
-        setLastName("");
-        setAddress("");
-        setTelephoneNumber("");
+        if (clientCopy !== undefined){
+            setFirstName(clientCopy.firstName);
+            setLastName(clientCopy.lastName);
+            setAddress(clientCopy.address);
+            setTelephoneNumber(clientCopy.telephoneNumber);
+        }
     }
 
-    return (
+    return(
         <div>
-            <h1>
-                Add new client to system
-            </h1>
-            <Form className="form col-5">
+            <h1>Edit client {clientId}</h1>
+            <Form className='form col-5'>
                 <FormGroup className="m-2">
                     <Label for={"firstName"}>First Name</Label>
                     <Input
@@ -97,7 +120,6 @@ export default function AddNewClient() {
                     <Button className='btn btn-danger  mx-2' onClick={handleReset}>Clear</Button>
                 </FormGroup>
             </Form>
-            <Link to='/clientsoverview'>Back to clients overview</Link>
         </div>
     )
 }
