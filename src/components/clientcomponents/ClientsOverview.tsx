@@ -1,7 +1,7 @@
 import {Button, Table} from "reactstrap";
 import {useEffect, useState} from "react";
 import {Client} from "./Client";
-import {FetchError} from "./FetchError";
+import {FetchError} from "../FetchError";
 import {Link, useNavigate} from "react-router-dom";
 
 export default function ClientsOverview() {

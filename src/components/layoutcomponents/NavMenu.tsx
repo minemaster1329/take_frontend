@@ -37,6 +37,19 @@ export default function NavMenu(){
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
+                        <UncontrolledDropdown nav inNavbar>
+                            <DropdownToggle nav caret className="text-dark">
+                                Cars
+                            </DropdownToggle>
+                            <DropdownMenu end>
+                                <DropdownItem tag={Link} to='/carsoverview'>
+                                    Overview
+                                </DropdownItem>
+                                <DropdownItem tag={Link} to='/addnewcar'>
+                                    Add new
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
                         <NavItem>
                             <NavLink href='/definedroutesoverview'>
                                 Defined routes

@@ -11,6 +11,10 @@ import PackagesOverview from "./components/packagecomponents/PackagesOverview";
 import AddNewClient from "./components/clientcomponents/AddNewClient";
 import EditClient from "./components/clientcomponents/EditClient";
 import ClientDetails from "./components/clientcomponents/ClientDetails";
+import CarsOverview from "./components/carcomponents/CarsOverview";
+import AddNewCar from "./components/carcomponents/AddNewCar";
+import EditCar from "./components/carcomponents/EditCar";
+import CarDetails from "./components/carcomponents/CarDetails";
 
 function App() {
   return (
@@ -28,6 +32,11 @@ function App() {
               <Route path='definedroutesoverview' element={<DefinedRoutesOverview/>}/>
                 {/*Routes routes*/}
               <Route path='routesoverview' element={<RoutesOverview/>}/>
+                {/*Routes routes*/}
+              <Route path='carsoverview' element={<CarsOverview/>}/>
+              <Route path='addnewcar' element={<AddNewCar/>}/>
+              <Route path='editcar' element={<EditCar/>}/>
+              <Route path='cardetails' element={<CarDetails/>}/>
                 {/*Packages routes*/}
               <Route path='packagesoverview' element={<PackagesOverview/>}/>
                 {/*Other routes*/}
