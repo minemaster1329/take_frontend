@@ -15,6 +15,7 @@ import CarsOverview from "./components/carcomponents/CarsOverview";
 import AddNewCar from "./components/carcomponents/AddNewCar";
 import EditCar from "./components/carcomponents/EditCar";
 import CarDetails from "./components/carcomponents/CarDetails";
+import {AddNewUser} from "./components/usercomponents/AddNewUser";
 
 function App() {
   return (
@@ -39,6 +40,8 @@ function App() {
               <Route path='cardetails' element={<CarDetails/>}/>
                 {/*Packages routes*/}
               <Route path='packagesoverview' element={<PackagesOverview/>}/>
+                {/*Users route*/}
+              <Route path='addnewuser' element={<AddNewUser/>}/>
                 {/*Other routes*/}
               <Route path='*' element={<NotFound/>}/>
             </Route>
