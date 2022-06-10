@@ -15,8 +15,8 @@ export default function EditCar() {
     const [carCopy, setCarCopy] = useState<Car>();
 
     useEffect(() => {
-        const fetchClient = async () => {
-            await fetch(`http://localhost:8080/take_project-1.0-SNAPSHOT/api/car/${carId}`).then(response => {
+        const fetchCar = async () => {
+            await fetch(`http://localhost:8080/take_project-1.0-SNAPSHOT/api/car/id/${carId}`).then(response => {
                 if (response.ok){
                     return response.json();
                 }
@@ -31,7 +31,7 @@ export default function EditCar() {
                 })
         }
 
-        fetchClient();
+        fetchCar();
     }, [carId])
 
     const handleSubmit = async () => {
