@@ -100,7 +100,7 @@ export default function AddNewCar(){
                     <Button className='btn btn-danger  mx-2' onClick={handleReset}>Clear</Button>
                 </FormGroup>
             </Form>
-            <Link to='/carsoverview'>Back to clients overview</Link>
+            <Link to='/carsoverview'>Back to cars overview</Link>
         </div>
     )
 }

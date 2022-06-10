@@ -65,6 +65,11 @@ export default function NavMenu(){
                                 Packages
                             </NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink href='/addnewuser'>
+                                Add new user
+                            </NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>

@@ -1,4 +1,4 @@
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {ClientIdOnly, Client} from "./Client";
 import {Button, Form, FormGroup, Input, Label} from "reactstrap";
 import {useEffect, useState} from "react";
@@ -120,6 +120,7 @@ export default function EditClient() {
                     <Button className='btn btn-danger  mx-2' onClick={handleReset}>Clear</Button>
                 </FormGroup>
             </Form>
+            <Link to='/clientsoverview'>Back to clients overview</Link>
         </div>
     )
 }
