@@ -12,8 +12,12 @@ export default function ClientsOverview() {
         fetchData();
     }, [])
 
+    //'http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/getall'
+    //'http://localhost:8080/take/client'
     const fetchData = async () => {
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/getall').then(response => {
+        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/getall', {
+            method: 'GET'
+        }).then(response => {
             if (response.ok){
                 setFetchError({didHappened: false, errorCode: 200, errorMessage: ""})
                 return response.json();
@@ -23,6 +27,7 @@ export default function ClientsOverview() {
         })
             .then(responseJson => {
                 setLoading(false)
+                //console.log(responseJson);
                 setClients(responseJson);
             })
             .catch((reason) => {
@@ -34,7 +39,8 @@ export default function ClientsOverview() {
     const navigate = useNavigate();
 
     const handleDelete = async (clientId: number) => {
-        await fetch(`http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/delete/${clientId}`, {
+        await fetch(//`http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/delete/${clientId}`
+            'http://localhost:8080/take/client/delete/${clientId}', {
             method: 'DELETE'
         })
             .then(response => {
