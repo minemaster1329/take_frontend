@@ -12,8 +12,8 @@ export default function AddNewPackage() {
     const [isPaidFor, setIsPaidFor] = useState<boolean>(false)
     const [price, setPrice] = useState<number>(0)
     const [estimatedDate, setEstimatedDate] = useState<string>("")
-    const [ownerID, setOwnerID] = useState<number>(0)
-    const [routeID, setRouteID] = useState<number>(0)
+    const [ownerID, setOwnerID] = useState(0)
+    const [routeID, setRouteID] = useState(0)
 
     const [clients, setClients] = useState<Client[]>([])
     const [routes, setRoutes] = useState<RouteClass[]>([])
@@ -84,15 +84,14 @@ export default function AddNewPackage() {
 
     const handleSubmit = async () => {
         let clientPackage: Package = {
-            id: 0,
             type: type,
             deliveryAddress: deliveryAddress,
             weight: weight,
-            isPaidFor: isPaidFor,
+            paidFor: isPaidFor,
             price: price,
             estimatedDeliveryDate: estimatedDate,
-            ownerID: ownerID,
-            routeID: routeID
+            packageOwnerId: ownerID,
+            packageRouteId: routeID
         }
 
         //'http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/addnew'
@@ -213,6 +212,7 @@ export default function AddNewPackage() {
                             Is paid for?
                         </Label>
                     </FormGroup>
+
                     <Dropdown isOpen={clientDropDownOpen} toggle={toggleClient}>
                         <DropdownToggle caret>
                             Choose Client
@@ -223,6 +223,7 @@ export default function AddNewPackage() {
                             ))}
                         </DropdownMenu>
                     </Dropdown>
+
                     <Dropdown isOpen={routeDropDownOpen} toggle={toggleRoute}>
                         <DropdownToggle caret>
                             Choose Route

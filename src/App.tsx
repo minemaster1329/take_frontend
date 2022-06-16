@@ -7,7 +7,6 @@ import ClientsOverview from "./components/clientcomponents/ClientsOverview";
 import NotFound from "./components/NotFound";
 import DefinedRoutesOverview from "./components/definedroutecomponents/DefinedRoutesOverview";
 import RoutesOverview from "./components/routecomponents/RoutesOverview";
-import PackagesOverview from "./components/packagecomponents/PackagesOverview";
 import AddNewClient from "./components/clientcomponents/AddNewClient";
 import EditClient from "./components/clientcomponents/EditClient";
 import ClientDetails from "./components/clientcomponents/ClientDetails";
@@ -40,11 +39,10 @@ function App() {
               <Route path='editcar' element={<EditCar/>}/>
               <Route path='cardetails' element={<CarDetails/>}/>
                 {/*Packages routes*/}
-              <Route path='packagesoverview' element={<PackagesOverview/>}/>
+              <Route path='addnewpackage' element ={<AddNewPackage/>}/>
                 {/*Users route*/}
               <Route path='addnewuser' element={<AddNewUser/>}/>
                 {/*Other routes*/}
-              <Route path='addnewpackage' element ={<AddNewPackage/>}/>
               <Route path='*' element={<NotFound/>}/>
             </Route>
           </Routes>

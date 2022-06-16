@@ -15,7 +15,7 @@ export default function AddNewClient() {
             firstName: firstName,
             lastName: lastName,
             address: address,
-            telephoneNumber: telephoneNumber
+            telephoneNumber: telephoneNumber,
         }
 
         //'http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/addnew'
