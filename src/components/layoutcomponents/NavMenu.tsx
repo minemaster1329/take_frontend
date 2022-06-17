@@ -61,7 +61,7 @@ export default function NavMenu(){
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href='/packagesoverview'>
+                            <NavLink href='/addnewpackage'>
                                 Packages
                             </NavLink>
                         </NavItem>
