@@ -84,7 +84,7 @@ export default function AddNewRoute() {
         let newRoute: HelperRouteClass = {
             id: 0,
             date: date,
-            routeCarId: carID,
+            carId: carID,
             definedRouteId: definedRouteID
         }
 
@@ -101,7 +101,8 @@ export default function AddNewRoute() {
                 } else {
                     alert("Error when adding package.")
                 }
-            });
+            })
+        ;
     }
 
 

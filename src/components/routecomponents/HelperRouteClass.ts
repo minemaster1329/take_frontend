@@ -1,6 +1,6 @@
 export type HelperRouteClass = {
     id: number
     date: string
-    routeCarId: number
+    carId: number
     definedRouteId: number
 }

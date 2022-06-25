@@ -1,5 +1,3 @@
-import {route} from "../packagecomponents/Package";
-
 export type Client = {
     id: number,
     firstName: string,
