@@ -1,11 +1,11 @@
 import {useEffect, useState} from "react";
-import {DefinedRoute} from "./DefinedRoute";
+import {RouteClass} from "./RouteClass";
 import {FetchError} from "../FetchError";
 import {Link, useNavigate} from "react-router-dom";
 import {Button, Table} from "reactstrap";
 
 export default function RoutesOverview() {
-    const [definedRoutes, setDefinedRoutes] = useState<DefinedRoute[]>([]);
+    const [routes, setRoutes] = useState<RouteClass[]>([]);
     const [fetchError, setFetchError] = useState<FetchError>({didHappened: false, errorCode: 200, errorMessage: ""});
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -14,7 +14,7 @@ export default function RoutesOverview() {
     }, [])
 
     const fetchData = async () => {
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/definedRoute/getall', {
+        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/route/getall', {
             method: 'GET'
         }).then(response => {
             if (response.ok) {
@@ -27,7 +27,7 @@ export default function RoutesOverview() {
             .then(responseJson => {
                 setLoading(false)
                 //console.log(responseJson);
-                setDefinedRoutes(responseJson);
+                setRoutes(responseJson);
             })
             .catch((reason) => {
                 setLoading(false)
@@ -53,27 +53,24 @@ export default function RoutesOverview() {
         } else {
             return (
                 <div>
-                    <h1>Defined routes overview:</h1>
+                    <h1>Routes overview:</h1>
                     <Table striped>
                         <thead>
                         <tr>
-                            <th>Starting Location</th>
-                            <th>Destination</th>
-                            <th>Distance (KM)</th>
+                            <th>Date</th>
+                            <th>Route</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {definedRoutes.map(definedRoute => (
-                            <tr key={definedRoute.id}>
-                                <td>{definedRoute.startingLocation}</td>
-                                <td>{definedRoute.destination}</td>
-                                <td>{definedRoute.distanceKM}</td>
+                        {routes.map(r => (
+                            <tr key={r.id}>
+                                <td>{r.date}</td>
 
                             </tr>
                         ))}
                         </tbody>
                     </Table>
-                    <Link to='/addnewdefinedroute'>Add new defined route</Link>
+                    <Link to='/routesoverview'>Add new defined route</Link>
                 </div>
             )
 
