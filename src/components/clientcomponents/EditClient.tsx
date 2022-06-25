@@ -16,7 +16,7 @@ export default function EditClient() {
 
     useEffect(() => {
         const fetchClient = async () => {
-            await fetch(`http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/${clientId}`).then(response => {
+            await fetch(`http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/id/${clientId}`).then(response => {
                 if (response.ok){
                     return response.json();
                 }
