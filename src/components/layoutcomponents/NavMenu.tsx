@@ -50,7 +50,6 @@ export default function NavMenu(){
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
-
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret className="text-dark">
                                 Defined routes
@@ -64,12 +63,19 @@ export default function NavMenu(){
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
-
-                        <NavItem>
-                            <NavLink href='/routesoverview'>
-                                Routes
-                            </NavLink>
-                        </NavItem>
+                        <UncontrolledDropdown nav inNavbar>
+                            <DropdownToggle nav caret className="text-dark">
+                                Route
+                            </DropdownToggle>
+                            <DropdownMenu end>
+                                <DropdownItem tag={Link} to='/routesoverview'>
+                                    Overview
+                                </DropdownItem>
+                                <DropdownItem tag={Link} to='/addnewroute'>
+                                    Add new
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
                         <NavItem>
                             <NavLink href='/addnewpackage'>
                                 Packages

@@ -1,23 +1,22 @@
+import {Button, Table} from "reactstrap";
 import {useEffect, useState} from "react";
-import {RouteClass} from "./RouteClass";
+import {Route} from "./Route";
 import {FetchError} from "../FetchError";
 import {Link, useNavigate} from "react-router-dom";
-import {Button, Table} from "reactstrap";
+
+
 
 export default function RoutesOverview() {
-    const [routes, setRoutes] = useState<RouteClass[]>([]);
+    const [routes, setRoutes] =useState<Route[]>([]);
     const [fetchError, setFetchError] = useState<FetchError>({didHappened: false, errorCode: 200, errorMessage: ""});
     const [loading, setLoading] = useState<boolean>(true);
-
     useEffect(() => {
         fetchData();
     }, [])
 
     const fetchData = async () => {
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/route/getall', {
-            method: 'GET'
-        }).then(response => {
-            if (response.ok) {
+        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/route/getall').then(response => {
+            if (response.ok){
                 setFetchError({didHappened: false, errorCode: 200, errorMessage: ""})
                 return response.json();
             }
@@ -26,7 +25,6 @@ export default function RoutesOverview() {
         })
             .then(responseJson => {
                 setLoading(false)
-                //console.log(responseJson);
                 setRoutes(responseJson);
             })
             .catch((reason) => {
@@ -41,7 +39,8 @@ export default function RoutesOverview() {
                 <p>Loading...</p>
             </div>
         )
-    } else {
+    }
+    else {
         if (fetchError.didHappened) {
             return (
                 <div>
@@ -53,28 +52,31 @@ export default function RoutesOverview() {
         } else {
             return (
                 <div>
-                    <h1>Routes overview:</h1>
+                    <h1>Route overview:</h1>
                     <Table striped>
                         <thead>
                         <tr>
+                            <th>Route Id</th>
                             <th>Date</th>
-                            <th>Route</th>
+                            <th>Type</th>
+                            <th>Car</th>
+
                         </tr>
                         </thead>
                         <tbody>
-                        {routes.map(r => (
-                            <tr key={r.id}>
-                                <td>{r.date}</td>
-
+                        {routes.map(routes => (
+                            <tr key={routes.id}>
+                                <td>{new Date(parseInt(routes.date)).toDateString()}</td>
+                                <td>{routes.definedRouteId}</td>
+                                <td>{routes.carId}</td>
                             </tr>
                         ))}
                         </tbody>
                     </Table>
-                    <Link to='/routesoverview'>Add new defined route</Link>
+                    <Link to='/addnewroute'>Add new route</Link>
                 </div>
+
             )
-
-
         }
     }
 }
