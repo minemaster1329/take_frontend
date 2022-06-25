@@ -6,7 +6,9 @@ import Home from "./components/Home";
 import ClientsOverview from "./components/clientcomponents/ClientsOverview";
 import NotFound from "./components/NotFound";
 import DefinedRoutesOverview from "./components/definedroutecomponents/DefinedRoutesOverview";
+import AddNewDefinedRoute from "./components/definedroutecomponents/AddNewDefinedRoute";
 import RoutesOverview from "./components/routecomponents/RoutesOverview";
+import AddNewRoute from "./components/routecomponents/AddNewRoute";
 import PackagesOverview from "./components/packagecomponents/PackagesOverview";
 import AddNewClient from "./components/clientcomponents/AddNewClient";
 import EditClient from "./components/clientcomponents/EditClient";
@@ -16,6 +18,8 @@ import AddNewCar from "./components/carcomponents/AddNewCar";
 import EditCar from "./components/carcomponents/EditCar";
 import CarDetails from "./components/carcomponents/CarDetails";
 import {AddNewUser} from "./components/usercomponents/AddNewUser";
+
+
 
 function App() {
   return (
@@ -30,9 +34,11 @@ function App() {
               <Route path='editclient' element={<EditClient/>}/>
               <Route path='clientdetails' element={<ClientDetails/>}/>
                 {/*defined Routes routes*/}
+              <Route path='addnewdefinedroute' element={<AddNewDefinedRoute/>}/>
               <Route path='definedroutesoverview' element={<DefinedRoutesOverview/>}/>
                 {/*Routes routes*/}
               <Route path='routesoverview' element={<RoutesOverview/>}/>
+              <Route path='addnewroute' element={<AddNewRoute/>}/>
                 {/*Routes routes*/}
               <Route path='carsoverview' element={<CarsOverview/>}/>
               <Route path='addnewcar' element={<AddNewCar/>}/>
