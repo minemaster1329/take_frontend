@@ -33,8 +33,8 @@ export default function RoutesOverview() {
             })
     }
 
-    if (loading){
-        return(
+    if (loading) {
+        return (
             <div>
                 <p>Loading...</p>
             </div>
@@ -69,8 +69,6 @@ export default function RoutesOverview() {
                                 <td>{new Date(parseInt(routes.date)).toDateString()}</td>
                                 <td>{routes.definedRouteId}</td>
                                 <td>{routes.carId}</td>
-
-
                             </tr>
                         ))}
                         </tbody>
@@ -80,7 +78,5 @@ export default function RoutesOverview() {
 
             )
         }
-
-
     }
 }

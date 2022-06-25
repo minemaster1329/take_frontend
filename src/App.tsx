@@ -8,7 +8,6 @@ import NotFound from "./components/NotFound";
 import DefinedRoutesOverview from "./components/definedroutecomponents/DefinedRoutesOverview";
 import AddNewDefinedRoute from "./components/definedroutecomponents/AddNewDefinedRoute";
 import RoutesOverview from "./components/routecomponents/RoutesOverview";
-import AddNewRoute from "./components/routecomponents/AddNewRoute";
 import PackagesOverview from "./components/packagecomponents/PackagesOverview";
 import AddNewClient from "./components/clientcomponents/AddNewClient";
 import EditClient from "./components/clientcomponents/EditClient";
@@ -18,6 +17,9 @@ import AddNewCar from "./components/carcomponents/AddNewCar";
 import EditCar from "./components/carcomponents/EditCar";
 import CarDetails from "./components/carcomponents/CarDetails";
 import {AddNewUser} from "./components/usercomponents/AddNewUser";
+import AddNewPackage from "./components/packagecomponents/AddNewPackage";
+import AddNewDefinedRoute from "./components/definedroutecomponents/AddNewDefinedRoute";
+import AddNewRoute from "./components/routecomponents/AddNewRoute";
 
 
 
@@ -36,6 +38,7 @@ function App() {
                 {/*defined Routes routes*/}
               <Route path='addnewdefinedroute' element={<AddNewDefinedRoute/>}/>
               <Route path='definedroutesoverview' element={<DefinedRoutesOverview/>}/>
+              <Route path='addnewdefinedroute' element={<AddNewDefinedRoute/>}/>
                 {/*Routes routes*/}
               <Route path='routesoverview' element={<RoutesOverview/>}/>
               <Route path='addnewroute' element={<AddNewRoute/>}/>
@@ -45,7 +48,7 @@ function App() {
               <Route path='editcar' element={<EditCar/>}/>
               <Route path='cardetails' element={<CarDetails/>}/>
                 {/*Packages routes*/}
-              <Route path='packagesoverview' element={<PackagesOverview/>}/>
+              <Route path='addnewpackage' element ={<AddNewPackage/>}/>
                 {/*Users route*/}
               <Route path='addnewuser' element={<AddNewUser/>}/>
                 {/*Other routes*/}
