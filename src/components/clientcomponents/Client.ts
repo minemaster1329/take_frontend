@@ -1,4 +1,4 @@
-import {Package} from "../packagecomponents/Package";
+import {route} from "../packagecomponents/Package";
 
 export type Client = {
     id: number,

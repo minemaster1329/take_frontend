@@ -1,14 +1,14 @@
 import {Client} from "../clientcomponents/Client";
 
-export type Package = {
+export type route = {
     deliveryAddress: string
     type: string
     weight: number
     paidFor: boolean
     price: number
     estimatedDeliveryDate: string
-    packageOwnerId: number
-    packageRouteId: number
+    routeCarId: number
+    definedRouteId: number
 }
 
 

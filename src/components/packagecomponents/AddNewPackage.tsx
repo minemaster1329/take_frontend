@@ -1,9 +1,10 @@
 import {Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormGroup, Input, Label} from "reactstrap";
 import {useEffect, useState} from "react";
-import {Package} from "./Package";
+import {route} from "./Package";
 import {FetchError} from "../FetchError";
 import {Client} from "../clientcomponents/Client";
 import {RouteClass} from "../routecomponents/RouteClass";
+import {HelperRouteClass} from "../routecomponents/HelperRouteClass";
 
 export default function AddNewPackage() {
     const [deliveryAddress, setDeliveryAddress] = useState<string>("")
@@ -16,7 +17,8 @@ export default function AddNewPackage() {
     const [routeID, setRouteID] = useState(0)
 
     const [clients, setClients] = useState<Client[]>([])
-    const [routes, setRoutes] = useState<RouteClass[]>([])
+    // const [routes, setRoutes] = useState<RouteClass[]>([])
+    const [routes, setRoutes] = useState<HelperRouteClass[]>([])
 
     const [fetchError, setFetchError] = useState<FetchError>({
         didHappened: false,
@@ -83,15 +85,15 @@ export default function AddNewPackage() {
 
 
     const handleSubmit = async () => {
-        let clientPackage: Package = {
+        let clientPackage: route = {
             type: type,
             deliveryAddress: deliveryAddress,
             weight: weight,
             paidFor: isPaidFor,
             price: price,
             estimatedDeliveryDate: estimatedDate,
-            packageOwnerId: ownerID,
-            packageRouteId: routeID
+            routeCarId: ownerID,
+            definedRouteId: routeID
         }
 
         //'http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/addnew'
@@ -230,7 +232,7 @@ export default function AddNewPackage() {
                         </DropdownToggle>
                         <DropdownMenu>
                             {routes.map(route => (
-                                <DropdownItem onClick={()=>setRouteID(route.id)}>{route.routeType.startingLocation}</DropdownItem>
+                                <DropdownItem onClick={()=>setRouteID(route.id)}>{route.date}</DropdownItem>
                             ))}
                         </DropdownMenu>
                     </Dropdown>
