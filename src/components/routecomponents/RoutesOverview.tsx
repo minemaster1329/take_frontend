@@ -1,13 +1,13 @@
 import {Button, Table} from "reactstrap";
 import {useEffect, useState} from "react";
-import {Route} from "./Route";
+import {RouteClass} from "./RouteClass";
 import {FetchError} from "../FetchError";
 import {Link, useNavigate} from "react-router-dom";
 
 
 
 export default function RoutesOverview() {
-    const [routes, setRoutes] =useState<Route[]>([]);
+    const [routes, setRoutes] =useState<RouteClass[]>([]);
     const [fetchError, setFetchError] = useState<FetchError>({didHappened: false, errorCode: 200, errorMessage: ""});
     const [loading, setLoading] = useState<boolean>(true);
     useEffect(() => {

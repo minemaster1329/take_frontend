@@ -2,7 +2,7 @@ import {useLocation} from "react-router-dom";
 import {Client, ClientIdOnly} from "./Client";
 import {useEffect, useState} from "react";
 import {FetchError} from "../FetchError";
-import {route} from "../packagecomponents/Package";
+import {Package} from "../packagecomponents/Package";
 import {Table} from "reactstrap";
 
 export default function ClientDetails() {
@@ -11,7 +11,7 @@ export default function ClientDetails() {
 
     const [fetchError, setFetchError] = useState<FetchError>({didHappened: false, errorCode: 200, errorMessage: ""});
     const [loading, setLoading] = useState<boolean>(true);
-    const [packages, setPackages] = useState<route[]>([])
+    const [packages, setPackages] = useState<Package[]>([])
 
     useEffect(() => {
         const fetchPackages = async () => {

@@ -8,7 +8,6 @@ import NotFound from "./components/NotFound";
 import DefinedRoutesOverview from "./components/definedroutecomponents/DefinedRoutesOverview";
 import AddNewDefinedRoute from "./components/definedroutecomponents/AddNewDefinedRoute";
 import RoutesOverview from "./components/routecomponents/RoutesOverview";
-import PackagesOverview from "./components/packagecomponents/PackagesOverview";
 import AddNewClient from "./components/clientcomponents/AddNewClient";
 import EditClient from "./components/clientcomponents/EditClient";
 import ClientDetails from "./components/clientcomponents/ClientDetails";
@@ -18,10 +17,7 @@ import EditCar from "./components/carcomponents/EditCar";
 import CarDetails from "./components/carcomponents/CarDetails";
 import {AddNewUser} from "./components/usercomponents/AddNewUser";
 import AddNewPackage from "./components/packagecomponents/AddNewPackage";
-import AddNewDefinedRoute from "./components/definedroutecomponents/AddNewDefinedRoute";
 import AddNewRoute from "./components/routecomponents/AddNewRoute";
-
-
 
 function App() {
   return (

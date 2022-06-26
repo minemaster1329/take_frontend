@@ -1,6 +1,6 @@
 import {Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormGroup, Input, Label} from "reactstrap";
 import {useEffect, useState} from "react";
-import {route} from "./Package";
+import {Package} from "./Package";
 import {FetchError} from "../FetchError";
 import {Client} from "../clientcomponents/Client";
 import {RouteClass} from "../routecomponents/RouteClass";
@@ -85,7 +85,7 @@ export default function AddNewPackage() {
 
 
     const handleSubmit = async () => {
-        let clientPackage: route = {
+        let clientPackage: Package = {
             type: type,
             deliveryAddress: deliveryAddress,
             weight: weight,

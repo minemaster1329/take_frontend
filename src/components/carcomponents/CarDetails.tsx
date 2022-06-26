@@ -3,7 +3,7 @@ import {CarIdOnly} from "./Car";
 import {useEffect, useState} from "react";
 import {FetchError} from "../FetchError";
 import {Package} from "../packagecomponents/Package";
-import {Route} from "../routecomponents/Route";
+import {RouteClass} from "../routecomponents/RouteClass";
 import {Table} from "reactstrap";
 import {DefinedRoute} from "../definedroutecomponents/DefinedRoute";
 
@@ -13,12 +13,8 @@ export default function CarDetails() {
 
     const [fetchError, setFetchError] = useState<FetchError>({didHappened: false, errorCode: 200, errorMessage: ""});
     const [loading, setLoading] = useState<boolean>(true);
-    const [routes, setRoutes] = useState<Route[]>([])
+    const [routes, setRoutes] = useState<RouteClass[]>([])
     const [routeTypes, setRouteType]= useState<DefinedRoute[]>([])
-
-
-
-
 
     useEffect(() => {
         const fetchRoutes = async () => {

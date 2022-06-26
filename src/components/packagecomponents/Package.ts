@@ -1,6 +1,6 @@
 import {Client} from "../clientcomponents/Client";
 
-export type route = {
+export type Package = {
     deliveryAddress: string
     type: string
     weight: number
