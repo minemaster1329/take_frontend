@@ -14,7 +14,7 @@ export default function CarDetails() {
     const [fetchError, setFetchError] = useState<FetchError>({didHappened: false, errorCode: 200, errorMessage: ""});
     const [loading, setLoading] = useState<boolean>(true);
     const [routes, setRoutes] = useState<RouteClass[]>([])
-    const [routeTypes, setRouteType]= useState<DefinedRoute[]>([])
+
 
     useEffect(() => {
         const fetchRoutes = async () => {
@@ -41,27 +41,7 @@ export default function CarDetails() {
 
 
         }
-        const fetchRouteTypes = async () => {
-            await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/definedRoute/getall', {
-                method: 'GET'
-            }).then(response => {
-                if (response.ok){
-                    setFetchError({didHappened: false, errorCode: 200, errorMessage: ""})
-                    return response.json();
-                }
-                setFetchError({didHappened: true, errorCode: response.status, errorMessage: response.statusText})
-                throw new Error("Something went wrong when fetching data!");
-            })
-                .then(responseJson => {
-                    setLoading(false)
-                    setRouteType(responseJson);
-                })
-                .catch((reason) => {
-                    setLoading(false)
-                    setFetchError({didHappened: true, errorCode: -1, errorMessage: reason.toString()})
-                })
-        }
-        fetchRouteTypes();
+
         fetchRoutes();
 
 
@@ -105,24 +85,14 @@ export default function CarDetails() {
                             <tr>
                                 <td>{_route.id}</td>
                                 <td>{new Date(parseInt(_route.date)).toDateString()}</td>
+                                <td> {_route.routeType.startingLocation} </td>
+                                <td> {_route.routeType.destination} </td>
 
 
 
-                                {routeTypes.map((routeType)=> {
-
-                                    if(_route.routeType.id===routeType.id)
-                                        return   <>
-
-                                            <td> {routeType.startingLocation} </td>
-                                            <td> {routeType.destination} </td>
 
 
-                                        </>
 
-                                    }
-
-
-                                )}
 
 
                             </tr>))}
