@@ -3,11 +3,11 @@ import {useEffect, useState} from "react";
 import {RouteClass} from "./RouteClass";
 import {FetchError} from "../FetchError";
 import {Link, useNavigate} from "react-router-dom";
-
+import {HelperRouteClass} from "./HelperRouteClass";
 
 
 export default function RoutesOverview() {
-    const [routes, setRoutes] =useState<RouteClass[]>([]);
+    const [routes, setRoutes] =useState<HelperRouteClass[]>([]);
     const [fetchError, setFetchError] = useState<FetchError>({didHappened: false, errorCode: 200, errorMessage: ""});
     const [loading, setLoading] = useState<boolean>(true);
     useEffect(() => {

@@ -97,9 +97,9 @@ export default function AddNewRoute() {
         })
             .then(response => {
                 if (response.ok) {
-                    alert("Package added successfully.");
+                    alert("Route added successfully.");
                 } else {
-                    alert("Error when adding package.")
+                    alert("Error when adding Route.")
                 }
             })
         ;
@@ -125,7 +125,7 @@ export default function AddNewRoute() {
             return (
                 <div>
                     <h1>
-                        Add new package to the system.
+                        Add new route to the system.
                     </h1>
                     <Form className="form col-5">
 

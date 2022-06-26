@@ -110,7 +110,7 @@ export default function CarDetails() {
 
                                 {routeTypes.map((routeType)=> {
 
-                                    if(_route.definedRouteId===routeType.id)
+                                    if(_route.routeType.id===routeType.id)
                                         return   <>
 
                                             <td> {routeType.startingLocation} </td>
