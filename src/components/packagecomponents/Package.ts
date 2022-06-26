@@ -7,11 +7,9 @@ export type Package = {
     paidFor: boolean
     price: number
     estimatedDeliveryDate: string
-    routeCarId: number
-    definedRouteId: number
+    packageOwnerId: number
+    packageRouteId: number
 }
-
-
 
 export interface PackageIdOnly {
     packageID: number

@@ -81,9 +81,6 @@ export default function AddNewPackage() {
             })
     }
 
-
-
-
     const handleSubmit = async () => {
         let clientPackage: Package = {
             type: type,
@@ -92,8 +89,8 @@ export default function AddNewPackage() {
             paidFor: isPaidFor,
             price: price,
             estimatedDeliveryDate: estimatedDate,
-            routeCarId: ownerID,
-            definedRouteId: routeID
+            packageOwnerId: ownerID,
+            packageRouteId: routeID
         }
 
         //'http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/addnew'
@@ -109,7 +106,7 @@ export default function AddNewPackage() {
                     alert("Package added successfully.");
                 }
                 else {
-                    alert("Error when adding package.")
+                    alert(`Error when adding package. ${response.status}`)
                 }
             });
     }
