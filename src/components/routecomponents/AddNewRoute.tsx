@@ -38,7 +38,7 @@ export default function AddNewRoute() {
     )
 
     const fetchCars = async () => {
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/car/getall', {
+        await fetch('http://localhost:8080/take/api/car/getall', {
             method: 'GET'
         }).then(response => {
             if (response.ok) {
@@ -59,7 +59,7 @@ export default function AddNewRoute() {
     }
 
     const fetchDefinedRoute = async () => {
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/definedRoute/getall', {
+        await fetch('http://localhost:8080/take/api/definedRoute/getall', {
             method: 'GET'
         }).then(response => {
             if (response.ok) {
@@ -88,7 +88,7 @@ export default function AddNewRoute() {
             definedRouteId: definedRouteID
         }
 
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/route/addnew', {
+        await fetch('http://localhost:8080/take/api/route/addnew', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

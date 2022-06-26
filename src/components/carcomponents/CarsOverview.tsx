@@ -12,7 +12,7 @@ export default function CarsOverview(){
     }, [])
 
     const fetchData = async () => {
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/car/getall').then(response => {
+        await fetch('http://localhost:8080/take/api/car/getall').then(response => {
             if (response.ok){
                 return response.json();
             }
@@ -30,7 +30,7 @@ export default function CarsOverview(){
     const navigate = useNavigate();
 
     const handleDelete = async (clientId: number) => {
-        await fetch(`http://localhost:8080/take_project-1.0-SNAPSHOT/api/car/delete/${clientId}`, {
+        await fetch(`http://localhost:8080/take/api/car/delete/${clientId}`, {
             method: 'DELETE'
         })
             .then(response => {

@@ -19,7 +19,7 @@ export default function AddNewClient() {
         }
 
         //'http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/addnew'
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/addnew', {
+        await fetch('http://localhost:8080/take/api/client/addnew', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

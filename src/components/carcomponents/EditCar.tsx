@@ -16,7 +16,7 @@ export default function EditCar() {
 
     useEffect(() => {
         const fetchCar = async () => {
-            await fetch(`http://localhost:8080/take_project-1.0-SNAPSHOT/api/car/id/${carId}`).then(response => {
+            await fetch(`http://localhost:8080/take/api/car/id/${carId}`).then(response => {
                 if (response.ok){
                     return response.json();
                 }
@@ -42,7 +42,7 @@ export default function EditCar() {
             ownerFirstLastName: ownerFirstLastName,
             telephoneNr: telephoneNumber
         }
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/car/update', {
+        await fetch('http://localhost:8080/take/api/car/update', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

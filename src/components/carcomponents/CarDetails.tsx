@@ -18,7 +18,7 @@ export default function CarDetails() {
 
     useEffect(() => {
         const fetchRoutes = async () => {
-            await fetch(`http://localhost:8080/take_project-1.0-SNAPSHOT/api/route/forcar/${carId}`, {
+            await fetch(`http://localhost:8080/take/api/route/forcar/${carId}`, {
                 method: 'GET'
             }).then(response => {
                 if (response.ok) {
@@ -42,7 +42,7 @@ export default function CarDetails() {
 
         }
         const fetchRouteTypes = async () => {
-            await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/definedRoute/getall', {
+            await fetch('http://localhost:8080/take/api/definedRoute/getall', {
                 method: 'GET'
             }).then(response => {
                 if (response.ok){

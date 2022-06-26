@@ -40,7 +40,7 @@ export default function AddNewPackage() {
     )
 
     const fetchRoutes = async () => {
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/route/getall', {
+        await fetch('http://localhost:8080/take/api/route/getall', {
             method: 'GET'
         }).then(response => {
             if (response.ok){
@@ -61,7 +61,7 @@ export default function AddNewPackage() {
     }
 
     const fetchClients = async () => {
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/getall', {
+        await fetch('http://localhost:8080/take/api/client/getall', {
             method: 'GET'
         }).then(response => {
             if (response.ok){
@@ -94,7 +94,7 @@ export default function AddNewPackage() {
         }
 
         //'http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/addnew'
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/clientPackage/addnew', {
+        await fetch('http://localhost:8080/take/api/clientPackage/addnew', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

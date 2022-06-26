@@ -15,7 +15,7 @@ export default function ClientsOverview() {
     }, [])
 
     const fetchData = async () => {
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/getall', {
+        await fetch('http://localhost:8080/take/api/client/getall', {
             method: 'GET'
         }).then(response => {
             if (response.ok){

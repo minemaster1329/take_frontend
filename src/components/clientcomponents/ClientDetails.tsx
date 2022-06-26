@@ -16,7 +16,7 @@ export default function ClientDetails() {
     useEffect(() => {
         const fetchPackages = async () => {
             // TODO - got not clue why URI doesn't work with our server - works with Postman
-            await fetch(`http://localhost:8080/take_project-1.0-SNAPSHOT/api/clientPackage/clientId/${clientId}`, {
+            await fetch(`http://localhost:8080/take/api/clientPackage/clientId/${clientId}`, {
                 method: 'GET'
             }).then(response => {
                 if (response.ok) {

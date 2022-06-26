@@ -14,7 +14,7 @@ export default function DefinedRoutesOverview() {
     }, [])
 
     const fetchData = async () => {
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/definedRoute/getall', {
+        await fetch('http://localhost:8080/take/api/definedRoute/getall', {
             method: 'GET'
         }).then(response => {
             if (response.ok) {

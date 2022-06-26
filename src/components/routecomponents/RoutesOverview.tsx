@@ -15,7 +15,7 @@ export default function RoutesOverview() {
     }, [])
 
     const fetchData = async () => {
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/route/getall').then(response => {
+        await fetch('http://localhost:8080/take/api/route/getall').then(response => {
             if (response.ok){
                 setFetchError({didHappened: false, errorCode: 200, errorMessage: ""})
                 return response.json();

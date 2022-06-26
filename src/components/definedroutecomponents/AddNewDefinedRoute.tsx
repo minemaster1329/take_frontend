@@ -17,7 +17,7 @@ export default function AddNewDefinedRoute() {
         }
 
         //'http://localhost:8080/take_project-1.0-SNAPSHOT/api/client/addnew'
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/definedRoute/addnew', {
+        await fetch('http://localhost:8080/take/api/definedRoute/addnew', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

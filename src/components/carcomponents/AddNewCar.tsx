@@ -21,7 +21,7 @@ export default function AddNewCar(){
             telephoneNr: telephoneNumber
         }
 
-        await fetch('http://localhost:8080/take_project-1.0-SNAPSHOT/api/car/addnew', {
+        await fetch('http://localhost:8080/take/api/car/addnew', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
