@@ -141,7 +141,7 @@ export default function AddNewRoute() {
                             />
                         </FormGroup>
 
-                        <Dropdown isOpen={carDropDownOpen} toggle={toggleCar}>
+                        <Dropdown isOpen={carDropDownOpen} toggle={toggleCar} className="m-2">
                             <DropdownToggle caret>
                                 Choose Car
                             </DropdownToggle>
@@ -151,8 +151,7 @@ export default function AddNewRoute() {
                                 ))}
                             </DropdownMenu>
                         </Dropdown>
-
-                        <Dropdown isOpen={definedRouteDropDownOpen} toggle={toggleDefinedRoute}>
+                        <Dropdown isOpen={definedRouteDropDownOpen} toggle={toggleDefinedRoute} className="m-2">
                             <DropdownToggle caret>
                                 Choose Defined Route
                             </DropdownToggle>

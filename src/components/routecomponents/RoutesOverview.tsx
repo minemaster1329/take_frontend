@@ -7,7 +7,7 @@ import {HelperRouteClass} from "./HelperRouteClass";
 
 
 export default function RoutesOverview() {
-    const [routes, setRoutes] =useState<HelperRouteClass[]>([]);
+    const [routes, setRoutes] =useState<RouteClass[]>([]);
     const [fetchError, setFetchError] = useState<FetchError>({didHappened: false, errorCode: 200, errorMessage: ""});
     const [loading, setLoading] = useState<boolean>(true);
     useEffect(() => {
@@ -56,21 +56,21 @@ export default function RoutesOverview() {
                     <Table striped>
                         <thead>
                         <tr>
-                            <th>Route Id</th>
                             <th>Date</th>
                             <th>Type</th>
                             <th>Car</th>
-
                         </tr>
                         </thead>
                         <tbody>
-                        {routes.map(routes => (
-                            <tr key={routes.id}>
-                                <td>{new Date(parseInt(routes.date)).toDateString()}</td>
-                                <td>{routes.definedRouteId}</td>
-                                <td>{routes.carId}</td>
-                            </tr>
-                        ))}
+                        {routes.map(route => {
+                            return (
+                                <tr key={route.id}>
+                                    <td>{new Date(parseInt(route.date)).toDateString()}</td>
+                                    <td>{`${route.routeType.startingLocation} -> ${route.routeType.destination}`}</td>
+                                    <td>{route.vehicle.licensePlateNr}</td>
+                                </tr>
+                            )
+                        })}
                         </tbody>
                     </Table>
                     <Link to='/addnewroute'>Add new route</Link>

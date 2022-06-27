@@ -40,7 +40,7 @@ export default function ClientsOverview() {
 
     const handleDelete = async (clientId: number) => {
         await fetch(
-            `http://localhost:8080/take/client/delete/${clientId}`, {
+            `http://localhost:8080/take/api/client/delete/${clientId}`, {
             method: 'DELETE'
         })
             .then(response => {
